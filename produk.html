@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Produk - UMKM Kopi Nusantara</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <img src="images/logo.png" alt="Logo UMKM" width="40" height="40" />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="tentang.html">Tentang Kami</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="produk.html">Produk</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="galeri.html">Galeri</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="kontak.html">Kontak</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container my-5">
+      <h2>Produk Unggulan Kami</h2>
+      <p>Berikut daftar produk kopi Nusantara yang kami sediakan:</p>
+
+      <!-- Tabel Produk -->
+      <table
+        border="1"
+        cellspacing="0"
+        cellpadding="8"
+        class="table table-striped"
+      >
+        <thead>
+          <tr>
+            <th>Produk</th>
+            <th>Ukuran</th>
+            <th>Harga</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Kopi Arabika Gayo</td>
+            <td>250g</td>
+            <td>Rp 45.000</td>
+          </tr>
+          <tr>
+            <td>Kopi Robusta Temanggung</td>
+            <td>250g</td>
+            <td>Rp 38.000</td>
+          </tr>
+          <tr>
+            <td>Kopi Liberika Riau</td>
+            <td>250g</td>
+            <td>Rp 42.000</td>
+          </tr>
+          <tr>
+            <td colspan="3" style="text-align: center; background-color: #eee">
+              Semua harga sudah termasuk PPN
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Bootstrap Card untuk Produk -->
+      <div class="container my-5">
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="card">
+              <img
+                src="images/produk1.jpg"
+                class="card-img-top"
+                alt="Produk 1"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Kopi Arabika Gayo</h5>
+                <p class="card-text">
+                  Kopi ini berasal dari dataran tinggi Gayo, memiliki cita rasa
+                  asam segar dan aroma khas.
+                </p>
+                <a href="#" class="btn btn-primary btn-beli">Beli Sekarang</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card">
+              <img
+                src="images/produk2.jpg"
+                class="card-img-top"
+                alt="Produk 2"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Kopi Robusta Temanggung</h5>
+                <p class="card-text">
+                  Kopi dengan body kuat dan rasa pahit khas robusta Indonesia.
+                </p>
+                <a href="#" class="btn btn-primary btn-beli">Beli Sekarang</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card">
+              <img
+                src="images/produk3.jpeg"
+                class="card-img-top"
+                alt="Produk 3"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Kopi Liberika Riau</h5>
+                <p class="card-text">
+                  Kopi unik dengan aroma smoky dan rasa yang berbeda dari
+                  biasanya.
+                </p>
+                <a href="#" class="btn btn-primary btn-beli">Beli Sekarang</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Audio -->
+      <h3>Dengarkan Cerita Kami</h3>
+      <audio controls>
+        <source src="audio/cerita-umkm.mp3" type="audio/mpeg" />
+        Audio tidak tersedia di browser Anda.
+      </audio>
+
+      <!-- Rating Produk (JS Percabangan) -->
+      <h3 class="mt-5">Rating Produk: <span id="hasil-rating"></span></h3>
+
+      <!-- Layanan Unggulan (JS Perulangan) -->
+      <h3 class="mt-4">Layanan Unggulan:</h3>
+      <ul id="layanan-list"></ul>
+
+      <!-- Form Pemesanan (JS Fungsi) -->
+      <h3 class="mt-4">Form Pemesanan</h3>
+      <form onsubmit="return cekForm()" class="mb-4">
+        <input
+          type="text"
+          id="namaProduk"
+          placeholder="Nama Produk"
+          class="form-control mb-2"
+        /><br />
+        <input
+          type="number"
+          id="jumlah"
+          placeholder="Jumlah"
+          class="form-control mb-2"
+        /><br />
+        <button type="submit" class="btn btn-success">Pesan</button>
+      </form>
+
+      <!-- Tugas Percabangan: Input Usia -->
+      <h3 class="mt-4">Kategori Pelanggan</h3>
+      <input
+        type="number"
+        id="usia"
+        placeholder="Masukkan usia Anda"
+        class="form-control mb-2"
+      />
+      <button onclick="cekKategori()" class="btn btn-info">Cek Kategori</button>
+      <p id="kategoriUsia" class="mt-2"></p>
+
+      <!-- Tugas Perulangan: 5 Testimoni -->
+      <h3 class="mt-4">Testimoni Produk:</h3>
+      <ul id="testimoni-list"></ul>
+
+      <!-- Tugas Fungsi: Hitung Total -->
+      <h3 class="mt-4">Hitung Total Belanja</h3>
+      <form onsubmit="return hitungTotalBelanja(event)">
+        <input
+          type="number"
+          id="harga"
+          placeholder="Harga per unit"
+          class="form-control mb-2"
+        />
+        <input
+          type="number"
+          id="qty"
+          placeholder="Jumlah"
+          class="form-control mb-2"
+        />
+        <button type="submit" class="btn btn-warning">Hitung Total</button>
+      </form>
+      <p id="totalBelanja" class="mt-2"></p>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Kopi Nusantara</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+      // Rating Produk (Percabangan)
+      let rating = 4.5;
+      if (rating >= 4.5) {
+        document.getElementById("hasil-rating").textContent =
+          "★★★★★ Sangat Disarankan";
+      } else if (rating >= 3) {
+        document.getElementById("hasil-rating").textContent =
+          "★★★ Rekomendasi Biasa";
+      } else {
+        document.getElementById("hasil-rating").textContent =
+          "★ Tidak Direkomendasikan";
+      }
+
+      // Layanan Unggulan (Perulangan)
+      let layanan = ["Gratis Ongkir", "Bayar di Tempat", "Garansi 30 Hari"];
+      layanan.forEach(function (item) {
+        let li = document.createElement("li");
+        li.textContent = item;
+        document.getElementById("layanan-list").appendChild(li);
+      });
+
+      // Fungsi Validasi Form Pemesanan
+      function cekForm() {
+        let nama = document.getElementById("namaProduk").value;
+        let jumlah = document.getElementById("jumlah").value;
+
+        if (nama === "" || jumlah === "") {
+          alert("Semua kolom wajib diisi.");
+          return false;
+        }
+
+        if (jumlah <= 0) {
+          alert("Jumlah harus lebih dari 0");
+          return false;
+        }
+
+        alert("Pemesanan berhasil dikirim!");
+        return true;
+      }
+
+      // Tugas Percabangan: Kategori Usia
+      function cekKategori() {
+        let usia = parseInt(document.getElementById("usia").value);
+        let hasil = "";
+
+        if (usia < 13) {
+          hasil = "Anak-anak";
+        } else if (usia >= 13 && usia <= 17) {
+          hasil = "Remaja";
+        } else if (usia >= 18 && usia <= 60) {
+          hasil = "Dewasa";
+        } else if (usia > 60) {
+          hasil = "Lansia";
+        }
+
+        document.getElementById("kategoriUsia").textContent =
+          "Kategori: " + hasil;
+      }
+
+      // Tugas Perulangan: 5 Testimoni
+      let testimoni = [
+        "Kopi sangat berkualitas! - Budi",
+        "Pengiriman cepat dan rapi - Siti",
+        "Harga terjangkau, rasa premium - Andi",
+        "Sudah langganan 2 tahun! - Dewi",
+        "Rekomendasi untuk pecinta kopi - Reza",
+      ];
+
+      testimoni.forEach(function (item) {
+        let li = document.createElement("li");
+        li.textContent = item;
+        document.getElementById("testimoni-list").appendChild(li);
+      });
+
+      // Tugas Fungsi: Hitung Total
+      function hitungTotal(harga, jumlah) {
+        return harga * jumlah;
+      }
+
+      function hitungTotalBelanja(event) {
+        event.preventDefault();
+        let harga = parseFloat(document.getElementById("harga").value);
+        let qty = parseInt(document.getElementById("qty").value);
+
+        if (isNaN(harga) || isNaN(qty) || harga <= 0 || qty <= 0) {
+          alert("Masukkan nilai yang valid!");
+          return false;
+        }
+
+        let total = hitungTotal(harga, qty);
+        document.getElementById("totalBelanja").textContent =
+          "Total: Rp " + total.toLocaleString("id-ID");
+        return false;
+      }
+
+      // jQuery Event untuk tombol Beli
+      $(document).ready(function () {
+        $(".btn-beli").click(function (e) {
+          e.preventDefault();
+          alert("Terima kasih, produk akan segera diproses!");
+        });
+      });
+    </script>
+  </body>
+</html>
